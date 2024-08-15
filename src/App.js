@@ -1,25 +1,16 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import MapComponent from './components/Map';
+import Sidebar from './components/Sidebar';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    const [addresses, setAddressData] = useState([]);
+    return (
+        <div style={{ display: 'flex' }}>
+            <Sidebar addresses={addresses} />
+            <MapComponent setAddressData={setAddressData} />
+        </div>
+    );
+};
 
 export default App;
